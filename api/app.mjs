@@ -15,7 +15,7 @@ import {
     hasNoGroupByFilters,
     getCachedCountsQuery,
     getSearchStringClause,
-} from './utils/queryBuilder.mjs';
+} from './utils/queryBuilderObelisk.mjs';
 import { getMWASResults } from './utils/mwas.mjs';
 import { getBioprojectsSummarization, getMwasHypothesis, getGraphRAGResults, getFigureSummarization, generateFigureCaptions } from './utils/LLMTextGeneration.mjs';
 import { getRequestBody, formatIdentifiersResponse } from './utils/format.mjs';
