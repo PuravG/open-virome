@@ -206,7 +206,7 @@ const getWhereClause = (palmprintOnly, identifiers) => {
     const identifierClauses = getIdClauses(identifiers?.biosample?.single, identifiers?.biosample?.range);
     const conditions = [];
     if (palmprintOnly) {
-        conditions.push('palm_virome = true');
+        conditions.push('obelisk_virome = true');
     }
     if (identifierClauses.length > 0) {
         conditions.push(`(${identifierClauses.join(' OR ')})`);
@@ -316,7 +316,7 @@ const DeckGLRenderScatterplot: any = ({
                             FROM bgl_gm4326_gp4326
                             ${getWhereClause(palmprintOnly, identifiers)}
                             LIMIT 65536)) AS t
-                    JOIN palm_virome ON t.accession = palm_virome.bio_sample;`,
+                    JOIN obelisk_virome ON t.accession = obelisk_virome.bio_sample;`,
                 };
                 SELECT.deflate = btoa(
                     Array.from(deflate(SELECT.text))
@@ -402,7 +402,7 @@ const DeckGLRenderScatterplot: any = ({
                                             response = await fetch(LOGAN_RDS_PROXY_LAMBDA_ENDPOINT, {
                                                 body: JSON.stringify({
                                                     SELECT:
-                                                        "node_coverage, node_seq FROM palm_virome WHERE run = '" +
+                                                        "node_coverage, node_seq FROM obelisk_virome WHERE run = '" +
                                                         info.object.run +
                                                         "';",
                                                 }),

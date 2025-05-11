@@ -4,7 +4,7 @@ const TABLE_TO_SELECT_COLUMNS = {
     obelisk_virome_identifiers: ['run_id', 'bioproject', 'biosample', 'has_virus'],
     sra: ['acc', 'bioproject', 'biosample', 'organism', 'assay_type'],
     sra_stat: ['run_id', 'stat_host_order'],
-    palm_virome: ['run', 'sotu', 'tax_species', 'tax_family'],
+    obelisk_virome: ['run', 'sotu', 'tax_species', 'tax_family'],
     biosample_tissue: ['biosample_id', 'tissue'],
     biosample_sex: ['biosample', 'sex'],
     biosample_geographical_location: ['accession', 'geo_attribute_value'],
@@ -17,7 +17,7 @@ const TABLE_TO_JOIN_KEY = {
     obelisk_virome_identifiers: 'run_id',
     sra: 'run_id',
     sra_stat: 'run_id',
-    palm_virome: 'run_id',
+    obelisk_virome: 'run_id',
     biosample_tissue: 'biosample',
     biosample_sex: 'biosample',
     biosample_geographical_location: 'biosample',
@@ -45,7 +45,7 @@ const TABLE_TO_UNIFIED_JOIN_KEY = {
         biosample: 'accession',
         biome_attribute_value: 'gp4326_wwf_tew_id',
     },
-    palm_virome: {
+    obelisk_virome: {
         run_id: 'run',
     },
     virome_community: {
@@ -180,7 +180,7 @@ export const getMinimalJoinSubQuery = (filters, palmprintOnly, groupBy = undefin
         obelisk_virome_identifiers: 'run_id, bioproject, biosample, has_virus',
         sra: 'acc as run_id, bioproject as bioproject, biosample as biosample, organism as organism, assay_type',
         sra_stat: 'run as run_id, name as stat_host_order',
-        palm_virome: 'run as run_id, sotu, tax_species, tax_family',
+        obelisk_virome: 'run as run_id, sotu, tax_species, tax_family',
         biosample_tissue: 'biosample_id as biosample, tissue',
         biosample_sex: 'biosample, sex',
         biosample_geographical_location: 'accession as biosample, attribute_value as geo_attribute_value',

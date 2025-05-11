@@ -223,7 +223,7 @@ const GenerateSummary = ({ identifiers, dataType, palmprintOnly }) => {
         const identifierClauses = getIdClauses(identifiers?.biosample?.single, identifiers?.biosample?.range);
         const conditions = [];
         if (palmprintOnly) {
-            conditions.push('palm_virome = true');
+            conditions.push('obelisk_virome = true');
         }
         if (identifierClauses.length > 0) {
             conditions.push(`(${identifierClauses.join(' OR ')})`);
